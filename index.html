@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Demo page - shp2geojson.js </title>
+		<title>Shapefile a GeoJson</title>
 		<meta http-equiv="Content-Type" content="charset=UTF-8" />
 		<meta name="author" content="Gipong">
 		<meta name="keywords" content="shapefile,dbf,geojson,preview,shp2geojson">
@@ -10,10 +10,6 @@
 	
 	<div id="wrap" class="wrap">
 	<div id="map" ></div>
-
-	<div id="info">
-		<img class="tips" style="width: auto; height: 100%;" src="demo/shp2geojsonC2.svg">
-	</div>
 
 	<div id="downloadLink"><div class="ui page grid">
 		<div class="sixteen wide column center aligned">
@@ -79,7 +75,7 @@
 				<div class="ui feed">
 					<div class="content">
 						<div class="summary">
-						TestData Source <a href="http://data.tainan.gov.tw/dataset/tn-village" target="_blank">http://data.tainan.gov.tw/dataset/tn-village</a>.
+						Shapefile de prueba <a href="http://data.tainan.gov.tw/dataset/tn-village" target="_blank">http://data.tainan.gov.tw/dataset/tn-village</a>.
 						</div>
 					</div>
 				</div>
@@ -128,24 +124,20 @@
 	<script src="preview.js"></script>
 	<script type="text/javascript" charset="UTF-8">
 	$(document).ready(function() {
-
 		var map = L.map('map').setView([ 0, 0 ], 5),
 		file,
 		vector;
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png' , { maxZoom: 13}).addTo(map);
-
 		function initVector () {
 			vector = L.geoJson([], {
 				style: function (feature) {
 					return feature.properties.style;
 				},
 				onEachFeature: function (feature, layer) {
-
 					layer.on({click: function(e) {
 						vector.eachLayer(function(l) {
 							vector.resetStyle(l);
 						});
-
 						$('.tbodyContent').remove();
 						var tbody = '<tbody class="tbodyContent">';
 						for (var key in e.target.feature.properties) {
@@ -155,7 +147,6 @@
 						$('#attribute').append(tbody + '</tbody>');
 						$('#attr').fadeIn(300);
 						map.panTo(e.latlng);
-
 						if('setStyle' in e.target) e.target.setStyle({
 							fillColor: '#FF0',
 							fillOpacity: 0.6
@@ -164,7 +155,6 @@
 				}
 			}).addTo(map);
 		}
-
 		function loadShpZip() {
 			var epsg = ($('#epsg').val() == '') ? 4326 : $('#epsg').val(),
 			encoding = ($('#encoding').val() == '') ? 'UTF-8' : $('#encoding').val();
@@ -177,16 +167,12 @@
 				}, function(data) {
 					var URL = window.URL || window.webkitURL || window.mozURL || window.msURL,
 					url = URL.createObjectURL(new Blob([JSON.stringify(data)], {type: "application/json"}));
-
 					$('#link').attr('href', url);
 					$('#link').html(file.name+'.geojson'+'<i class="download icon"></i>').attr('download', file.name+'.geojson');
-
 					$('#downloadLink').slideDown(400);
-
 					$('.shp-modal').toggleClass('effect');
 					$('.overlay').toggleClass('effect');
 					$('#wrap').toggleClass('blur');
-
 					vector.addData(data);
 					map.fitBounds([
 						[data.bbox[1], data.bbox[0]], [data.bbox[3], data.bbox[2]]
@@ -203,7 +189,6 @@
 			}
 		}
 		initVector();
-
 		$("#file").change(function(evt) {
 			file = evt.target.files[0];
 			if(file.size > 0) {
@@ -212,11 +197,9 @@
 				$('#preview').removeClass('disabled');
 			}
 		});
-
 		$('#preview').click(function() {
 			loadShpZip();
 		});
-
 		$('.button').popup({
 			inline: true,
 			position : 'bottom left'
@@ -224,7 +207,7 @@
 		$('.tips').popup({
 			target: '#addZipfile',
 			position: 'top center',
-			title: 'Getting started !',
+			title: 'Comenzar',
 			variation: 'huge'
 		});
 		$('#entireLayer').click(function() {
@@ -261,10 +244,8 @@
 				}
 			}
 		});
-
 		$("#attr").draggable({ containment: $(this).parent().parent(), scroll: false, cursor: "move" });
 		$('#cancelAttr').click(function(){ $('#attr').slideUp(300); });
-
 	});
 	</script>
 	</body>
