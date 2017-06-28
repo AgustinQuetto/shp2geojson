@@ -22,9 +22,9 @@
 		</div>
 	</div></div>
 	<div id="attr"><div class="tableDisplay"><table id="attribute" class="ui small celled unstackable table">
-		<thead id="attrHead"><tr class="center aligned"><th>Attribute</th><th>Value</th></tr></thead>
+		<thead id="attrHead"><tr class="center aligned"><th>Atibuto</th><th>Valor</th></tr></thead>
 		<tbody class="tbodyContent"></tbody>
-	</table></div><div class="ui red icon button" id="cancelAttr">Close</div></div>
+	</table></div><div class="ui red icon button" id="cancelAttr">Cerrar</div></div>
 
 	<footer id="footer"><div class="ui page grid">
 
@@ -34,9 +34,9 @@
 			</div>
 			<div id="addZipfile" class="tips large ui positive right labeled icon button">
 				<i class="file archive icon"></i>
-				Upload zip file
+				Cargar archivo zip
 			</div>
-			<div id="removeLayer" class="negative large ui button">Remove All Features</div>
+			<div id="removeLayer" class="negative large ui button">Remover características</div>
 		</div>
 
 	</div></footer>
@@ -47,8 +47,8 @@
 		<div class="sixteen wide aligned column">
 
 			<div class="ui form segment">
-				<div class="field"><div class="ui teal fluid labeled icon button upload" id="zipfile" data-content="Mandatory files : SHP , DBF" data-variation="inverted large">
-						Upload zip file
+				<div class="field"><div class="ui teal fluid labeled icon button upload" id="zipfile" data-content="Formatos validos: SHP , DBF" data-variation="inverted large">
+						Cargar archivo zip
 						<i class="file archive outline icon"></i>
 						<input type="file" id="file" accept=".zip">
 				</div></div>
@@ -58,21 +58,21 @@
 				<div id="option">
 					<div class="field ui labeled input" id="epsgField">
 						<div class="ui label">EPSG</div>
-						<input type="text" placeholder="Default : 4326" id="epsg" class="v" onfocus="this.value='';">
+						<input type="text" placeholder="Predefinido: 4326" id="epsg" class="v" onfocus="this.value='';">
 					</div>
 					<div class="field ui labeled input" >
-						<div class="ui label">Encoding</div>
-						<input type="text" placeholder="Set your desired encoding UTF-8, Big5, Big5-HKSCS ... " id="encoding" class="v" onfocus="this.value='';">
+						<div class="ui label">Codificación</div>
+						<input type="text" placeholder="Ingrese su codificación: UTF-8, Big5, Big5-HKSCS..." id="encoding" class="v" onfocus="this.value='';">
 					</div>
 				</div>
 
 				<div class="two fields">
 
-				<div class="right field"><div class="ui blue fluid labeled icon button" data-content="Metadata : EPSG: 3826, Encoding: big5" data-variation="inverted large" id="downloadfile">
-					<i class="download icon"></i>Download TestData
+				<div class="right field"><div class="ui blue fluid labeled icon button" data-content="Metadata: EPSG: 3826, Encoding: big5" data-variation="inverted large" id="downloadfile">
+					<i class="download icon"></i>Descargar datos de prueba
 				</div></div>
 
-				<div class="field"><div class="ui teal fluid labeled icon disabled button" id="preview">Preview
+				<div class="field"><div class="ui teal fluid labeled icon disabled button" id="preview">Mostrar
 					<i class="add icon"></i>
 				</div></div>
 
@@ -83,27 +83,27 @@
 						</div>
 					</div>
 				</div>
-				<div id="cancel" class="negative right ui button">Cancel</div>
+				<div id="cancel" class="negative right ui button">Cancelar</div>
 
 				</div>
 			</div>
 			<div class="ui inverted dimmer">
-				<div class="ui large text loader">Loading</div>
+				<div class="ui large text loader">Cargando</div>
 			</div>
 
 		</div>
 
 		<div class="ui small modal">
 			<i class="close icon"></i>
-			<div class="header">Error Messages</div>
+			<div class="header">Errores</div>
 			<div class="content">
 				<div class="image"><i class="file archive outline icon"></i></div>
 				<div class="description">
-					<p>Sorry, this format are not supported.</p>
+					<p>Disculpe. El formato no es compatible.</p>
 				</div>
 			</div>
 			<div class="actions"><div class="ui red button">
-				<i class="remove icon"></i>Cancel
+				<i class="remove icon"></i>Cancelar
 			</div></div>
 		</div>
 
